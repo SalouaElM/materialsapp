@@ -2,21 +2,18 @@
     controllerName="be.ap.sap.materialsapp.controller.Detail"
     xmlns="sap.m"
     xmlns:semantic="sap.f.semantic"
+    xmlns:f="sap.ui.layout.form"
     xmlns:mvc="sap.ui.core.mvc">
 
     <semantic:SemanticPage
         id="detailPage"
         busy="{detailView>/busy}"
-        busyIndicatorDelay="{detailView>/delay}">
+        busyIndicatorDelay="{detailView>/delay}" showFooter="true">
         <semantic:titleHeading>
             <Title
                 text="{Matnr}"
                 level="H2"/>
         </semantic:titleHeading>
-        <semantic:headerContent>
-            <ObjectAttribute title="{i18n>priceTitle}"/>
-            <ObjectNumber />
-        </semantic:headerContent>
         <semantic:content>
 
         </semantic:content>
@@ -45,6 +42,21 @@
                     visible="{= !${device>/system/phone} &amp;&amp; ${appView>/actionButtonsInfo/midColumn/fullScreen}}"
                     press=".toggleFullScreen"/>
         </semantic:exitFullScreenAction>
+
+        <semantic:content>
+            <f:SimpleForm>
+                <f:content>
+                <Label text="MaterialNumber"/>
+                <Text text="{Matnr}"/>
+
+                <Label text="Fabriek"/>
+                <Text text="{Mbrsh}"/>
+
+                <Label text="Eenheid"/>
+                <Text text="{Meins}"/>
+                </f:content>
+            </f:SimpleForm>
+        </semantic:content>
 
     </semantic:SemanticPage>
 
